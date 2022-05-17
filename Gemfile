@@ -1,2 +1,1 @@
 require 'httparty'
-require 'faker'
