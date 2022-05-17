@@ -9,3 +9,6 @@ please clone down this repo if you'd like to follow along on the following topic
 curl -I https://api.github.com/users/USERNAME
 ```
 replace USERNAME with your github username
+
+# Lesson on Mocks and Stubs
+https://backend.turing.edu/module1/lessons/mocks_stubs
