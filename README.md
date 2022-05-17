@@ -20,7 +20,7 @@ https://backend.turing.edu/module1/lessons/mocks_stubs
 
 ## Doubles
 
-#### Test touble
+#### Test touble in a broader sense (not limited to ruby/rails)
 In this scope, also known as Test Double. Test Double is a generic term for any case where you replace a production object for testing purposes. There are various kinds of double that Gerard lists:  
 
 `Dummy` objects are passed around but never actually used. Usually they are just used to fill parameter lists.  
@@ -29,7 +29,9 @@ Fake objects actually have working implementations, but usually take some shortc
 `Spies` are stubs that also record some information based on how they were called. One form of this might be an email service that records how many messages it was sent.  
 `Mocks` are pre-programmed with expectations which form a specification of the calls they are expected to receive. They can throw an exception if they receive a call they don't expect and are checked during verification to ensure they got all the calls they were expecting.  
 
-#### Double Object in rspec
+Source: https://stevenklavins94.medium.com/rspec-mocks-stubs-let-doubles-98f9b6000f92
+
+#### Double Objects in ruby rspec
 Doubles objects in rspec can be set up as different type based on the desired testing outcomes (e.g. `instance_double, class_double, object_double, etc.`). We will only use two types of doubles to create mocks today:  
 
 `double_mock = double('anything or blank')` (class  `RSpec::Mocks::Double`)
@@ -37,13 +39,13 @@ Doubles objects in rspec can be set up as different type based on the desired te
 
 Different types of doubles: https://relishapp.com/rspec/rspec-mocks/v/3-11/docs/verifying-doubles
 
-## Mocks
+## Mocks - Turing Definition
 
 Mocks are objects that stand in for other objects. The other object might be one that’s not implemented yet, doesn’t yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.   
 Mocks can be setup as different categories of doubles(we will show double and instance_double in this demo) (Think of categories of doubles as different vihecle types).  
 
-## Stubs
+## Stubs - Turing Definition
 
 Stubs are used to test methods that could potentially have multiple outcomes, for example, something like a number or password generator. Hard coding test values in these scenarios would no doubt have undesirable outcomes, lets give an example in RSpec as illustrated in the video below.  
 
-Source: https://stevenklavins94.medium.com/rspec-mocks-stubs-let-doubles-98f9b6000f92
+
