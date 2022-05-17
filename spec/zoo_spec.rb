@@ -29,7 +29,7 @@ RSpec.describe Zoo do
  	zoo.add_animal(huey2)
 
  	expect(zoo.animal_names).to eq(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey', 'Lucy2', 'Tino2', 'Tod2', 'Dumbo2', 'Huey2'])
- 	#pretend we only care about zoo.animal_names to return the above string for future tests
+ 	#pretend we only need zoo.animal_names to return the string below for future tests- it takes 20 lines to create all required instances/run methods without mocks and stubs
  	expect(zoo.animal_names.join).to eq("LucyTinoTodDumboHueyLucy2Tino2Tod2Dumbo2Huey2")
  end
 
