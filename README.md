@@ -5,7 +5,7 @@ Clone this repo if you'd like to follow along on the following testing exercises
 2. mock and stub api testing
 
 # setup
-  mocks, stubs, and doubles come with rspec. Bundle to install 'httparty' that we'll need for an API service call.  
+  Mocks, stubs, and doubles come with rspec. Bundle to install 'httparty' that we'll need for an API service call.  
 
 # to check rate limit-use the following line
 ```
