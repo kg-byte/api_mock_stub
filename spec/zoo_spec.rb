@@ -44,8 +44,8 @@ RSpec.describe Zoo do
 
 #Stubs
  it 'returns animal names' do 
- 	cat = double('Lucy the cat')
- 	dog = double('Tino the dog')
+ 	cat = double('anything') #mock subject
+ 	dog = Animal.new('Tino', 'dog')  #real subject
 
  	allow(cat).to receive(:name).and_return('Lucy')
  	allow(dog).to receive(:name).and_return('Tino')
