@@ -14,20 +14,25 @@ RSpec.describe Zoo do
  	expect(zoo.animals).to eq([cat, dog])
  end
 
-#Mocks 
-
+#Mocks objects that stand in for real objects
+# 
  it 'can add animals' do 
- 	cat = Animal.new('Lucy', 'cat') 
  	dog = Animal.new('Tino', 'dog') 
- 	zoo.add_animal(cat)
- 	zoo.add_animal(dog)
+ 	cat = Animal.new('Lucy', 'cat') 
 
- 	expect(zoo).to respond_to(:add_animal).with(1).argument
- 	expect(zoo).to_not respond_to(:add_animal).with(2).arguments
- 	expect(zoo.animal_names).to respond_to(:count, :flatten)
- 	expect(zoo.animal_names).to_not respond_to(:to_i)
- 	expect(zoo).to_not respond_to(:breed)
- 	expect(cat).to respond_to(:breed)
+ 	zoo_mock = instance_double(Zoo, name: 'Denver Zoo', add_animal: [dog, cat], animal_names: ['Lucy', 'Tino'])
+
+ 	# zoo_mock = double('something') #stub
+ 	# expect(zoo_mock).to receive(:name).and_return('Denver Zoo') #stub
+ 	# expect(zoo_mock).to receive(:add_animal).twice.and_return([dog, cat]) #stub
+ 	# expect(zoo_mock).to receive(:animal_names).twice.and_return(['Lucy', 'Tino']) #stub
+
+ 	expect(zoo_mock.name).to respond_to(:length, :upcase)
+ 	expect(zoo_mock.add_animal('something')).to respond_to(:count, :flatten)
+ 	expect(zoo_mock.add_animal('something')[0]).to respond_to(:breed)
+ 	expect(zoo_mock.animal_names).to respond_to(:count, :flatten)
+ 	expect(zoo_mock.animal_names).to_not respond_to(:to_i)
+ 	expect(zoo_mock).to_not respond_to(:breed)
  end
 
 
@@ -44,16 +49,18 @@ RSpec.describe Zoo do
 
 #Stubs
  it 'returns animal names' do 
- 	cat = double('anything') #mock subject
- 	dog = Animal.new('Tino', 'dog')  #real subject
+ 	cat = double('anything') #mock object
+ 	chipmunk = instance_double(Animal, name: 'Chip', breed: 'chipmunk')
+ 	dog = Animal.new('Tino', 'dog')  #real object can also be stubbed
 
- 	allow(cat).to receive(:name).and_return('Lucy')
- 	allow(dog).to receive(:name).and_return('Tino')
+ 	allow(cat).to receive(:name).and_return('Lucy') #stub to mock object	
+ 	allow(dog).to receive(:name).and_return('Not Tino') #stub to mock/real object
 
  	zoo.add_animal(cat)
  	zoo.add_animal(dog)
+ 	zoo.add_animal(chipmunk)
 
- 	expect(zoo.animal_names).to eq(['Lucy', 'Tino'])
+ 	expect(zoo.animal_names).to eq(['Lucy', 'Not Tino', 'Chip'])
  end
 
 end
