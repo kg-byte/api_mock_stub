@@ -28,11 +28,8 @@ RSpec.describe Zoo do
  	zoo.add_animal(dumbo2)
  	zoo.add_animal(huey2)
 
- 	expect(zoo.animals).to eq([lucy, tino, tod, dumbo, huey])
- 	expect(zoo).to respond_to(:add_animal, :animal_names, :name, :animals)
- 	expect(zoo.name).to respond_to(:length, :upcase)
- 	expect(zoo.animal_names).to respond_to(:count, :flatten)
- 	expect(zoo.animal_names).to eq(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey'])
+ 
+ 	expect(zoo.animal_names).to eq(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey', 'Lucy2', 'Tino2', 'Tod2', 'Dumbo2', 'Huey2'])
  	
  	#pretend we only care about zoo.animal_names to return the above string for future tests
  	expect(zoo.animal_names.join).to eq("LucyTinoTodDumboHueyLucy2Tino2Tod2Dumbo2Huey2")
@@ -44,6 +41,7 @@ RSpec.describe Zoo do
   #create and stub a double
 it 'returns animal names' do 
   zoo_mock = double()
+
   allow(zoo_mock).to receive(:animal_names).and_return(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey', 'Lucy2', 'Tino2', 'Tod2', 'Dumbo2', 'Huey2'])
   
   expect(zoo_mock.animal_names.join).to eq("LucyTinoTodDumboHueyLucy2Tino2Tod2Dumbo2Huey2")
