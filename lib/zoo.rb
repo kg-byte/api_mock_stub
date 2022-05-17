@@ -13,4 +13,5 @@ attr_reader :name, :animals
   	@animals.map{|animal| animal.name}
   end
 
+
 end
