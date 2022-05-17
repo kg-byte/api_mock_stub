@@ -19,7 +19,7 @@ https://backend.turing.edu/module1/lessons/mocks_stubs
 
 You may commonly hear people refer to doubles when unit testing and this can be somewhat misleading as a mock is a type of double, a fake or dummy is a type of double, a stub is a double. A double is quite simply a generic term for these kinds of tests, not a particular thing in itself.
 
-Different types of doubles: https://relishapp.com/rspec/rspec-mocks/v/3-11/docs/verifying-doubles/using-an-instance-double
+Different types of doubles: https://relishapp.com/rspec/rspec-mocks/v/3-11/docs/verifying-doubles
 
 ## Mocks
 
