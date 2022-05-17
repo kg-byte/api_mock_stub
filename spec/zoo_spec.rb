@@ -28,38 +28,39 @@ RSpec.describe Zoo do
  	zoo.add_animal(dumbo2)
  	zoo.add_animal(huey2)
 
- 	expect(zoo.animals).to eq([lucy, tino, tod, dumbo, huey])
- 	expect(zoo).to respond_to(:add_animal, :animal_names, :name, :animals)
- 	expect(zoo.name).to respond_to(:length, :upcase)
- 	expect(zoo.animal_names).to respond_to(:count, :flatten)
- 	expect(zoo.animal_names).to eq(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey'])
- 	
+ 	expect(zoo.animal_names).to eq(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey', 'Lucy2', 'Tino2', 'Tod2', 'Dumbo2', 'Huey2'])
  	#pretend we only care about zoo.animal_names to return the above string for future tests
  	expect(zoo.animal_names.join).to eq("LucyTinoTodDumboHueyLucy2Tino2Tod2Dumbo2Huey2")
  end
 
 # what if there's thousands of animals to add from a csv file? and we only want to return zoo.animal_names for other tests?
-#Mocks objects and stubs that stand in for real objects /method return values
+
+#Mocks objects and stubs that stand in for real objects /method return values, we'll practice:
+
+# double: double_mock = double('literally anything or blank')
+# instance mock: instance_mock = instance_double(Class, method1: val1, method2: val2)
+# stub: allow(:object/:mock).to receive(:method1).and_return(val1) 
+
 
   #create and stub a double
-it 'returns animal names' do 
-  zoo_mock = double()
-  allow(zoo_mock).to receive(:animal_names).and_return(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey', 'Lucy2', 'Tino2', 'Tod2', 'Dumbo2', 'Huey2'])
+xit 'returns animal names' do 
+  # zoo_mock = #start double here
+  # stub the zoo_mock double with appropriate value here
   
   expect(zoo_mock.animal_names.join).to eq("LucyTinoTodDumboHueyLucy2Tino2Tod2Dumbo2Huey2")
 end
 
 
     #create a instance_double
- it 'returns animal names' do 
- 	zoo_mock = instance_double(Zoo, name: 'Denver Zoo', animal_names: ['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey', 'Lucy2', 'Tino2', 'Tod2', 'Dumbo2', 'Huey2'])
+ xit 'returns animal names' do 
+ 	#zoo_mock =  #initialize zoo_mock with appropriate method/response here
  	
  	expect(zoo_mock.animal_names.join).to eq("LucyTinoTodDumboHueyLucy2Tino2Tod2Dumbo2Huey2")
  end
 
 #stub a real object
-  it 'returns animal names' do 
-  	allow(zoo).to receive(:animal_names).and_return(['Lucy', 'Tino', 'Tod', 'Dumbo', 'Huey', 'Lucy2', 'Tino2', 'Tod2', 'Dumbo2', 'Huey2'])
+  xit 'returns animal names' do 
+  	#stub real object with appropriate val here
   
     expect(zoo.animal_names.join).to eq("LucyTinoTodDumboHueyLucy2Tino2Tod2Dumbo2Huey2")
   end
@@ -67,8 +68,8 @@ end
 
 
 
-# stubs attributes exxample
- it 'returns animal names' do 
+# stubs attributes example
+ xit 'returns animal names' do 
  	cat = double('anything') #mock object
  	chipmunk = instance_double(Animal, name: 'Chip')
  	dog = Animal.new('Tino', 'dog')  #real object can also be stubbed
@@ -80,7 +81,8 @@ end
  	zoo.add_animal(dog)
  	zoo.add_animal(chipmunk) #instance double initialized with name attribue
 
- 	expect(zoo.animal_names).to eq(['Lucy', 'Not Tino', 'Chip'])
+ 	expected = #???? what should be our expected return for zoo.animal_names?
+ 	expect(zoo.animal_names).to eq(expected)
  end
 
 end

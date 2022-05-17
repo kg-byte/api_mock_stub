@@ -9,12 +9,17 @@ RSpec.describe GithubService do
   	expect(response[:login]).to eq('kg-byte')
   end
 
-  # it 'returns response' do 
-  # 	user_data = JSON.parse(File.read('lib/user_response.json'), symbolize_names: true)
-  # 	allow(GithubService).to receive(:get_user).and_return(user_data)
+  xit 'returns response' do 
+  	# use JSON to parse a fixutre file with appropriate response
+  	# syntax JSON.parse(File.read('dir')), symbolize_names: true)
+  	# user_data = 
 
-  #   response = GithubService.get_user
-  # 	expect(response).to have_key(:login)
-  # 	expect(response[:login]).to eq('kg-byte')
-  # end 
+  	#stub GithubService.get_user with user_data below:
+  	# allow(GithubService).to....
+
+    response = GithubService.get_user 
+    # this would be called in Facade/controller later
+  	expect(response).to have_key(:login)
+  	expect(response[:login]).to eq('kg-byte')
+  end 
 end
